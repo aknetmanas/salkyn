@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light" data-lang="ru">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Салкын — Кондиционеры в Кыргызстане</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #f0f6ff;
+    --bg2: #e2eeff;
+    --card: #ffffff;
+    --text: #0d1a2e;
+    --text2: #4a6080;
+    --accent: #0056d6;
+    --accent2: #00b4d8;
+    --accent3: #48cae4;
+    --border: rgba(0,86,214,0.12);
+    --shadow: 0 4px 32px rgba(0,86,214,0.10);
+    --frost: rgba(255,255,255,0.75);
+    --nav-bg: rgba(240,246,255,0.92);
+    --footer-bg: #0d1a2e;
+    --footer-text: #8ea8c8;
+    --hero-grad: linear-gradient(135deg, #001e4d 0%, #003a8c 50%, #005bb5 100%);
+    --snowflake: #b3d0f5;
+  }
+  [data-theme="dark"] {
+    --bg: #08111f;
+    --bg2: #0d1a2e;
+    --card: #111e32;
+    --text: #e8f0ff;
+    --text2: #7aa0cc;
+    --accent: #4d9fff;
+    --accent2: #00d4ff;
+    --accent3: #48cae4;
+    --border: rgba(77,159,255,0.15);
+    --shadow: 0 4px 32px rgba(0,0,0,0.4);
+    --frost: rgba(13,26,46,0.85);
+    --nav-bg: rgba(8,17,31,0.95);
+    --footer-bg: #04090f;
+    --footer-text: #4a6a90;
+    --hero-grad: linear-gradient(135deg, #020b18 0%, #04184a 50%, #001e6e 100%);
+    --snowflake: #1e3a5f;
+  }
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    transition: background 0.3s, color 0.3s;
+    overflow-x: hidden;
+  }
+
+  /* ===== NAV ===== */
+  nav {
+    position: fixed; top:0; left:0; right:0; z-index:100;
+    background: var(--nav-bg);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    height: 64px;
+    display: flex; align-items:center; justify-content:space-between;
+    padding: 0 5%;
+    transition: background 0.3s;
+  }
+  .nav-logo {
+    display:flex; align-items:center; gap:10px;
+    text-decoration:none;
+  }
+  .nav-logo-icon {
+    width:36px; height:36px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    border-radius:10px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:20px;
+  }
+  .nav-logo-text {
+    font-family:'Montserrat',sans-serif;
+    font-weight:900;
+    font-size:1.3rem;
+    color: var(--text);
+    letter-spacing:-0.5px;
+  }
+  .nav-logo-text span { color: var(--accent); }
+  .nav-controls { display:flex; align-items:center; gap:8px; }
+  .lang-btn, .theme-btn {
+    border: 1.5px solid var(--border);
+    background: var(--card);
+    color: var(--text);
+    border-radius: 8px;
+    padding: 5px 13px;
+    font-size: 0.82rem;
+    font-weight:600;
+    cursor:pointer;
+    transition: all 0.2s;
+    letter-spacing:0.5px;
+  }
+  .lang-btn:hover, .theme-btn:hover {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+  }
+  .theme-btn { padding:5px 10px; font-size:1rem; }
+  .nav-cta {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color:white;
+    border:none;
+    border-radius:8px;
+    padding:7px 18px;
+    font-weight:600;
+    font-size:0.85rem;
+    cursor:pointer;
+    text-decoration:none;
+    transition: opacity 0.2s;
+    display:inline-block;
+  }
+  .nav-cta:hover { opacity:0.88; }
+
+  /* ===== SNOWFLAKES BG ===== */
+  .snowflakes-bg {
+    position:absolute; inset:0; overflow:hidden; pointer-events:none;
+  }
+  .sf {
+    position:absolute;
+    color: var(--snowflake);
+    font-size: 1.5rem;
+    opacity:0;
+    animation: fall linear infinite;
+  }
+  @keyframes fall {
+    0% { transform: translateY(-40px) rotate(0deg); opacity:0.7; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity:0; }
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    position:relative;
+    min-height:100vh;
+    display:flex; align-items:center; justify-content:center;
+    background: var(--hero-grad);
+    overflow:hidden;
+    padding-top:64px;
+  }
+  .hero-content {
+    text-align:center;
+    z-index:2;
+    padding: 60px 20px 80px;
+    max-width:800px;
+  }
+  .hero-badge {
+    display:inline-block;
+    background: rgba(77,159,255,0.18);
+    border: 1px solid rgba(77,159,255,0.35);
+    color: #7ec8ff;
+    font-size:0.78rem;
+    font-weight:600;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    padding:6px 18px;
+    border-radius:20px;
+    margin-bottom:24px;
+  }
+  .hero h1 {
+    font-family:'Montserrat',sans-serif;
+    font-size: clamp(2.4rem, 7vw, 5.5rem);
+    font-weight:900;
+    color:white;
+    line-height:1.05;
+    margin-bottom:20px;
+    letter-spacing:-2px;
+  }
+  .hero h1 .blue { color: #48cae4; }
+  .hero-sub {
+    color: #8ab8d8;
+    font-size: clamp(0.95rem, 2.5vw, 1.2rem);
+    margin-bottom:44px;
+    line-height:1.7;
+    max-width:560px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .hero-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+  .btn-primary {
+    background: linear-gradient(135deg, #0096ff, #00d4ff);
+    color:white;
+    border:none;
+    padding:16px 36px;
+    border-radius:12px;
+    font-size:1rem;
+    font-weight:700;
+    cursor:pointer;
+    text-decoration:none;
+    display:inline-block;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 8px 32px rgba(0,150,255,0.35);
+  }
+  .btn-primary:hover { transform:translateY(-2px); box-shadow:0 12px 40px rgba(0,150,255,0.45); }
+  .btn-outline {
+    background:transparent;
+    color:white;
+    border:2px solid rgba(255,255,255,0.3);
+    padding:14px 32px;
+    border-radius:12px;
+    font-size:1rem;
+    font-weight:600;
+    cursor:pointer;
+    text-decoration:none;
+    display:inline-block;
+    transition: all 0.2s;
+  }
+  .btn-outline:hover { background:rgba(255,255,255,0.1); border-color:white; }
+  .hero-stats {
+    display:flex; gap:40px; justify-content:center; flex-wrap:wrap;
+    margin-top:64px;
+    padding-top:40px;
+    border-top:1px solid rgba(255,255,255,0.1);
+  }
+  .hero-stat { text-align:center; }
+  .hero-stat-num {
+    font-family:'Montserrat',sans-serif;
+    font-size:2rem;
+    font-weight:900;
+    color:white;
+  }
+  .hero-stat-label { color:#6a9ec0; font-size:0.82rem; margin-top:4px; }
+
+  /* ===== WAVE ===== */
+  .wave {
+    display:block;
+    margin-top:-2px;
+    width:100%;
+    height:80px;
+  }
+
+  /* ===== SECTION ===== */
+  section { padding:80px 5%; }
+  .section-label {
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:0.72rem;
+    font-weight:700;
+    color: var(--accent);
+    margin-bottom:12px;
+  }
+  .section-title {
+    font-family:'Montserrat',sans-serif;
+    font-size: clamp(1.6rem, 4vw, 2.8rem);
+    font-weight:900;
+    color: var(--text);
+    margin-bottom:14px;
+    letter-spacing:-1px;
+    line-height:1.15;
+  }
+  .section-desc {
+    color: var(--text2);
+    font-size:1rem;
+    line-height:1.7;
+    max-width:540px;
+    margin-bottom:48px;
+  }
+
+  /* ===== SERVICES ===== */
+  .services-grid {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap:24px;
+  }
+  .service-card {
+    background: var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:32px 28px;
+    box-shadow: var(--shadow);
+    transition: transform 0.25s, box-shadow 0.25s;
+    position:relative;
+    overflow:hidden;
+  }
+  .service-card::before {
+    content:'';
+    position:absolute;
+    top:0; left:0; right:0;
+    height:3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+  }
+  .service-card:hover {
+    transform:translateY(-6px);
+    box-shadow:0 16px 48px rgba(0,86,214,0.15);
+  }
+  .service-icon {
+    width:52px; height:52px;
+    border-radius:14px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.5rem;
+    margin-bottom:20px;
+  }
+  .service-card h3 {
+    font-weight:700;
+    font-size:1.1rem;
+    margin-bottom:10px;
+    color:var(--text);
+  }
+  .service-card p {
+    color:var(--text2);
+    font-size:0.9rem;
+    line-height:1.65;
+  }
+
+  /* ===== BRANDS / WHY ===== */
+  .why-section { background: var(--bg2); }
+  .why-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+  }
+  @media(max-width:768px){ .why-grid { grid-template-columns:1fr; } }
+  .why-visual {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    border-radius:24px;
+    padding:48px 40px;
+    text-align:center;
+    color:white;
+    font-size:5rem;
+    position:relative;
+    overflow:hidden;
+  }
+  .why-visual-bg {
+    position:absolute; inset:0;
+    background: linear-gradient(135deg,rgba(0,0,0,0.1),rgba(0,0,0,0));
+  }
+  .why-big-icon { position:relative; z-index:1; }
+  .why-visual-text {
+    position:relative; z-index:1;
+    font-family:'Montserrat',sans-serif;
+    font-size:1rem;
+    font-weight:700;
+    margin-top:16px;
+    letter-spacing:1px;
+  }
+  .why-list { display:flex; flex-direction:column; gap:20px; }
+  .why-item {
+    display:flex; gap:16px; align-items:flex-start;
+  }
+  .why-item-icon {
+    flex-shrink:0;
+    width:44px; height:44px;
+    background: var(--card);
+    border:1px solid var(--border);
+    border-radius:12px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.2rem;
+    box-shadow: var(--shadow);
+  }
+  .why-item-text h4 { font-weight:600; margin-bottom:4px; color:var(--text); }
+  .why-item-text p { color:var(--text2); font-size:0.88rem; line-height:1.6; }
+
+  /* ===== CATALOG ===== */
+  .catalog-grid {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap:24px;
+  }
+  .product-card {
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    transition: transform 0.25s;
+  }
+  .product-card:hover { transform:translateY(-5px); }
+  .product-img {
+    height:160px;
+    background: linear-gradient(135deg, var(--bg2), var(--bg));
+    display:flex; align-items:center; justify-content:center;
+    font-size:4.5rem;
+    position:relative;
+    overflow:hidden;
+  }
+  .product-badge {
+    position:absolute; top:12px; right:12px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color:white;
+    font-size:0.7rem;
+    font-weight:700;
+    padding:4px 10px;
+    border-radius:8px;
+  }
+  .product-info { padding:22px; }
+  .product-info h3 { font-weight:700; margin-bottom:6px; color:var(--text); }
+  .product-info p { color:var(--text2); font-size:0.85rem; margin-bottom:16px; line-height:1.5; }
+  .product-price {
+    font-family:'Montserrat',sans-serif;
+    font-size:1.3rem;
+    font-weight:900;
+    color: var(--accent);
+  }
+  .product-price span { font-size:0.78rem; font-weight:400; color:var(--text2); }
+  .product-btn {
+    display:block;
+    width:100%;
+    margin-top:14px;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    color:white;
+    border:none;
+    padding:11px;
+    border-radius:10px;
+    font-weight:600;
+    font-size:0.9rem;
+    cursor:pointer;
+    text-align:center;
+    transition:opacity 0.2s;
+  }
+  .product-btn:hover { opacity:0.85; }
+
+  /* ===== PROCESS ===== */
+  .process-section { background: var(--hero-grad); position:relative; }
+  .process-section .section-label { color:#48cae4; }
+  .process-section .section-title { color:white; }
+  .process-section .section-desc { color:#7aaac8; }
+  .process-steps {
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    gap:24px;
+    position:relative;
+  }
+  .process-step {
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:16px;
+    padding:28px 24px;
+    text-align:center;
+  }
+  .process-num {
+    font-family:'Montserrat',sans-serif;
+    font-size:2.5rem;
+    font-weight:900;
+    color:rgba(72,202,228,0.3);
+    line-height:1;
+    margin-bottom:12px;
+  }
+  .process-step h3 { color:white; font-weight:600; margin-bottom:8px; font-size:1rem; }
+  .process-step p { color:#7aaac8; font-size:0.85rem; line-height:1.6; }
+
+  /* ===== CONTACT / FORM ===== */
+  .contact-section { background: var(--bg2); }
+  .contact-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:start;
+  }
+  @media(max-width:768px){ .contact-grid { grid-template-columns:1fr; } }
+  .contact-info { display:flex; flex-direction:column; gap:24px; }
+  .contact-block {
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:24px;
+    display:flex; gap:16px; align-items:center;
+    box-shadow:var(--shadow);
+  }
+  .contact-block-icon {
+    width:48px; height:48px; flex-shrink:0;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    border-radius:12px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.3rem; color:white;
+  }
+  .contact-block h4 { font-weight:600; color:var(--text); margin-bottom:4px; }
+  .contact-block a, .contact-block p { color:var(--text2); font-size:0.9rem; text-decoration:none; }
+  .contact-block a:hover { color:var(--accent); }
+
+  /* form */
+  .form-card {
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:36px 32px;
+    box-shadow:var(--shadow);
+  }
+  .form-card h3 { font-family:'Montserrat',sans-serif; font-size:1.4rem; font-weight:800; margin-bottom:24px; color:var(--text); }
+  .form-group { margin-bottom:18px; }
+  .form-group label { display:block; font-size:0.82rem; font-weight:600; color:var(--text2); margin-bottom:7px; letter-spacing:0.5px; }
+  .form-group input, .form-group select, .form-group textarea {
+    width:100%;
+    background: var(--bg);
+    border:1.5px solid var(--border);
+    border-radius:10px;
+    padding:12px 15px;
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    font-size:0.95rem;
+    transition: border-color 0.2s;
+    outline:none;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: var(--accent);
+  }
+  .form-group textarea { resize:vertical; min-height:100px; }
+  .form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media(max-width:480px){ .form-row { grid-template-columns:1fr; } }
+  .submit-btn {
+    width:100%;
+    background:linear-gradient(135deg,#25d366,#128c7e);
+    color:white;
+    border:none;
+    padding:15px;
+    border-radius:12px;
+    font-size:1rem;
+    font-weight:700;
+    cursor:pointer;
+    display:flex; align-items:center; justify-content:center; gap:10px;
+    transition: opacity 0.2s, transform 0.2s;
+    margin-top:8px;
+  }
+  .submit-btn:hover { opacity:0.9; transform:translateY(-1px); }
+  .submit-btn svg { width:20px; height:20px; fill:white; }
+  #form-success {
+    display:none;
+    background:linear-gradient(135deg,rgba(37,211,102,0.12),rgba(18,140,126,0.12));
+    border:1.5px solid #25d366;
+    border-radius:12px;
+    padding:18px;
+    text-align:center;
+    color:#25d366;
+    font-weight:600;
+    margin-top:16px;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--footer-bg);
+    padding:48px 5% 24px;
+  }
+  .footer-top {
+    display:grid;
+    grid-template-columns:1.5fr 1fr 1fr;
+    gap:48px;
+    margin-bottom:40px;
+    border-bottom:1px solid rgba(255,255,255,0.06);
+    padding-bottom:40px;
+  }
+  @media(max-width:768px){ .footer-top { grid-template-columns:1fr; gap:32px; } }
+  .footer-brand .nav-logo-text { color:white; }
+  .footer-brand p { color: var(--footer-text); font-size:0.88rem; margin-top:14px; line-height:1.7; }
+  .footer-col h4 { color:white; font-weight:600; margin-bottom:16px; font-size:0.9rem; }
+  .footer-col ul { list-style:none; display:flex; flex-direction:column; gap:10px; }
+  .footer-col ul li a {
+    color:var(--footer-text);
+    font-size:0.87rem;
+    text-decoration:none;
+    transition:color 0.2s;
+  }
+  .footer-col ul li a:hover { color: #48cae4; }
+  .footer-bottom {
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
+    color: var(--footer-text);
+    font-size:0.8rem;
+  }
+  .footer-dev {
+    color: var(--footer-text);
+    font-size:0.78rem;
+  }
+  .footer-dev a { color: #48cae4; text-decoration:none; }
+
+  /* ===== WHATSAPP FLOAT ===== */
+  .wa-float {
+    position:fixed;
+    bottom:24px; right:24px;
+    width:58px; height:58px;
+    background:linear-gradient(135deg,#25d366,#128c7e);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 6px 24px rgba(37,211,102,0.45);
+    cursor:pointer;
+    text-decoration:none;
+    z-index:99;
+    transition:transform 0.2s;
+    animation: pulse 2.5s infinite;
+  }
+  .wa-float:hover { transform:scale(1.1); animation:none; }
+  @keyframes pulse {
+    0%,100%{ box-shadow:0 6px 24px rgba(37,211,102,0.45); }
+    50%{ box-shadow:0 6px 36px rgba(37,211,102,0.7); }
+  }
+  .wa-float svg { width:32px; height:32px; fill:white; }
+
+  /* ===== RESP ===== */
+  @media(max-width:600px){
+    nav { padding:0 4%; }
+    .nav-cta { display:none; }
+    section { padding:60px 5%; }
+  }
+
+  /* lang hidden */
+  [data-lang="ru"] .ky { display:none!important; }
+  [data-lang="ky"] .ru { display:none!important; }
+
+  /* scroll reveal */
+  .reveal { opacity:0; transform:translateY(30px); transition:opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity:1; transform:none; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon">❄️</div>
+    <span class="nav-logo-text">Сал<span>кын</span></span>
+  </a>
+  <div class="nav-controls">
+    <button class="lang-btn" onclick="toggleLang()" id="langBtn">KG</button>
+    <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">🌙</button>
+    <a href="#contact" class="nav-cta">
+      <span class="ru">Заявка</span>
+      <span class="ky">Суроо</span>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="snowflakes-bg" id="snowBg"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="ru">❄️ ОсОО «Салкын» — 2026</span>
+      <span class="ky">❄️ ЖЧК «Салкын» — 2026</span>
+    </div>
+    <h1>
+      <span class="ru">Прохлада<br/><span class="blue">в каждый дом</span></span>
+      <span class="ky">Ар үйгө<br/><span class="blue">салкындык</span></span>
+    </h1>
+    <p class="hero-sub">
+      <span class="ru">Продажа, установка и обслуживание кондиционеров ведущих брендов в Кыргызстане. Профессиональный монтаж с гарантией.</span>
+      <span class="ky">Кыргызстанда алдыңкы брендлердин кондиционерлерин сату, орнотуу жана тейлөө. Кепилдик менен кесипкөй монтаж.</span>
+    </p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">
+        <span class="ru">Оставить заявку</span>
+        <span class="ky">Өтүнүч калтыруу</span>
+      </a>
+      <a href="#catalog" class="btn-outline">
+        <span class="ru">Смотреть каталог</span>
+        <span class="ky">Каталогду көрүү</span>
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">100+</div>
+        <div class="hero-stat-label ru">Установок выполнено</div>
+        <div class="hero-stat-label ky">Орнотуулар аткарылды</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">5+</div>
+        <div class="hero-stat-label ru">Ведущих брендов</div>
+        <div class="hero-stat-label ky">Алдыңкы брендлер</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">2 года</div>
+        <div class="hero-stat-label ru">Гарантия на монтаж</div>
+        <div class="hero-stat-label ky">Монтажга кепилдик</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+  <path id="wavePath" d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="var(--bg)"/>
+</svg>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-label">
+    <span class="ru">Наши услуги</span>
+    <span class="ky">Биздин кызматтар</span>
+  </div>
+  <div class="section-title reveal">
+    <span class="ru">Всё что нужно<br/>для прохлады</span>
+    <span class="ky">Салкындык үчүн<br/>баары бар</span>
+  </div>
+  <p class="section-desc reveal">
+    <span class="ru">Полный цикл: от выбора модели до послегарантийного обслуживания.</span>
+    <span class="ky">Толук цикл: модель тандоодон кийинки кепилдик тейлөөгө чейин.</span>
+  </p>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-icon">🛒</div>
+      <h3><span class="ru">Продажа</span><span class="ky">Сатуу</span></h3>
+      <p>
+        <span class="ru">Широкий выбор кондиционеров: настенные, кассетные, канальные и мультисплит-системы.</span>
+        <span class="ky">Кондиционерлердин кеңири тандоосу: дубалдык, кассеталык, каналдык жана мульти-сплит-системалар.</span>
+      </p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">🔧</div>
+      <h3><span class="ru">Установка</span><span class="ky">Орнотуу</span></h3>
+      <p>
+        <span class="ru">Профессиональный монтаж за 1 день. Выезжаем по Бишкеку и области.</span>
+        <span class="ky">1 күндө кесипкөй монтаж. Бишкек жана облуска чыгабыз.</span>
+      </p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">🧹</div>
+      <h3><span class="ru">Обслуживание</span><span class="ky">Тейлөө</span></h3>
+      <p>
+        <span class="ru">Чистка, заправка фреоном, диагностика — быстро и по разумной цене.</span>
+        <span class="ky">Тазалоо, фреон менен толтуруу, диагностика — тез жана акылга сыярлык баада.</span>
+      </p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">🛠️</div>
+      <h3><span class="ru">Ремонт</span><span class="ky">Оңдоо</span></h3>
+      <p>
+        <span class="ru">Ремонтируем любые марки. Выезд мастера в день обращения.</span>
+        <span class="ky">Каалаган маркаларды оңдойбуз. Кайрылган күнү устанын чыгуусу.</span>
+      </p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">📋</div>
+      <h3><span class="ru">Консультация</span><span class="ky">Консультация</span></h3>
+      <p>
+        <span class="ru">Подберём оптимальную модель под вашу площадь и бюджет бесплатно.</span>
+        <span class="ky">Сиздин аянтыңызга жана бюджетиңизге оптималдуу моделди бекер тандайбыз.</span>
+      </p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">🏆</div>
+      <h3><span class="ru">Гарантия</span><span class="ky">Кепилдик</span></h3>
+      <p>
+        <span class="ru">Гарантия на монтаж — 2 года. На оборудование — по условиям производителя.</span>
+        <span class="ky">Монтажга кепилдик — 2 жыл. Жабдыкка — өндүрүүчүнүн шарттары боюнча.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-section" id="about">
+  <div class="why-grid">
+    <div class="why-visual reveal">
+      <div class="why-visual-bg"></div>
+      <div class="why-big-icon">❄️</div>
+      <div class="why-visual-text">
+        <span class="ru">Ваш климат — наша работа</span>
+        <span class="ky">Сиздин климат — биздин иш</span>
+      </div>
+    </div>
+    <div>
+      <div class="section-label">
+        <span class="ru">Почему мы</span>
+        <span class="ky">Эмүчүн биз</span>
+      </div>
+      <div class="section-title">
+        <span class="ru">Надёжно.<br/>Быстро.<br/>По честной цене.</span>
+        <span class="ky">Ишенимдүү.<br/>Тез.<br/>Адал баада.</span>
+      </div>
+      <div class="why-list">
+        <div class="why-item reveal">
+          <div class="why-item-icon">⚡</div>
+          <div class="why-item-text">
+            <h4><span class="ru">Быстрый выезд</span><span class="ky">Тез чыгуу</span></h4>
+            <p><span class="ru">Выезжаем в день заявки — без ожидания неделями.</span><span class="ky">Өтүнүч берилген күнү чыгабыз — жумаларча күтүүсүз.</span></p>
+          </div>
+        </div>
+        <div class="why-item reveal">
+          <div class="why-item-icon">💰</div>
+          <div class="why-item-text">
+            <h4><span class="ru">Честные цены</span><span class="ky">Адал баалар</span></h4>
+            <p><span class="ru">Прозрачная смета до начала работ. Никаких скрытых доплат.</span><span class="ky">Иш башталганга чейин ачык смета. Жашыруун кошумча төлөмдөр жок.</span></p>
+          </div>
+        </div>
+        <div class="why-item reveal">
+          <div class="why-item-icon">🔒</div>
+          <div class="why-item-text">
+            <h4><span class="ru">Сертифицированные мастера</span><span class="ky">Сертификатталган усталар</span></h4>
+            <p><span class="ru">Только обученные специалисты с опытом монтажа климатической техники.</span><span class="ky">Климаттык техниканы орнотуу тажрыйбасы бар гана окутулган адистер.</span></p>
+          </div>
+        </div>
+        <div class="why-item reveal">
+          <div class="why-item-icon">📞</div>
+          <div class="why-item-text">
+            <h4><span class="ru">Поддержка 7 дней</span><span class="ky">7 күн колдоо</span></h4>
+            <p><span class="ru">Отвечаем на вопросы и после установки. Всегда на связи.</span><span class="ky">Орнотуудан кийин да суроолорго жооп беребиз. Ар дайым байланышта.</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATALOG -->
+<section id="catalog">
+  <div class="section-label">
+    <span class="ru">Каталог</span>
+    <span class="ky">Каталог</span>
+  </div>
+  <div class="section-title reveal">
+    <span class="ru">Популярные модели</span>
+    <span class="ky">Популярдуу моделдер</span>
+  </div>
+  <p class="section-desc reveal">
+    <span class="ru">Проверенные бренды по доступным ценам. Есть в наличии на складе.</span>
+    <span class="ky">Жеткиликтүү баада текшерилген брендлер. Кампада бар.</span>
+  </p>
+  <div class="catalog-grid">
+    <div class="product-card reveal">
+      <div class="product-img">🌬️<div class="product-badge"><span class="ru">Хит</span><span class="ky">Хит</span></div></div>
+      <div class="product-info">
+        <h3>Samsung WindFree 9</h3>
+        <p><span class="ru">9000 БТЕ, до 25 м². Инвертор, Wi-Fi управление, тихий режим.</span><span class="ky">9000 БТЕ, 25 м²га чейин. Инвертор, Wi-Fi башкаруу, тынч режим.</span></p>
+        <div class="product-price">от 45 000 <span>сом</span></div>
+        <button class="product-btn" onclick="orderProduct('Samsung WindFree 9')"><span class="ru">Заказать</span><span class="ky">Буйрутуу</span></button>
+      </div>
+    </div>
+    <div class="product-card reveal">
+      <div class="product-img">❄️<div class="product-badge"><span class="ru">Выгодно</span><span class="ky">Кирешелүү</span></div></div>
+      <div class="product-info">
+        <h3>LG DualCool 12</h3>
+        <p><span class="ru">12000 БТЕ, до 35 м². Двойное охлаждение, A++ энергоэффективность.</span><span class="ky">12000 БТЕ, 35 м²га чейин. Кош муздатуу, A++ энергия натыйжалуулугу.</span></p>
+        <div class="product-price">от 55 000 <span>сом</span></div>
+        <button class="product-btn" onclick="orderProduct('LG DualCool 12')"><span class="ru">Заказать</span><span class="ky">Буйрутуу</span></button>
+      </div>
+    </div>
+    <div class="product-card reveal">
+      <div class="product-img">🌡️<div class="product-badge"><span class="ru">Новинка</span><span class="ky">Жаңылык</span></div></div>
+      <div class="product-info">
+        <h3>Midea All Easy 18</h3>
+        <p><span class="ru">18000 БТЕ, до 50 м². Зимний режим, самоочистка, таймер.</span><span class="ky">18000 БТЕ, 50 м²га чейин. Кышкы режим, өзүн-өзү тазалоо, таймер.</span></p>
+        <div class="product-price">от 68 000 <span>сом</span></div>
+        <button class="product-btn" onclick="orderProduct('Midea All Easy 18')"><span class="ru">Заказать</span><span class="ky">Буйрутуу</span></button>
+      </div>
+    </div>
+    <div class="product-card reveal">
+      <div class="product-img">🏠<div class="product-badge"><span class="ru">Офис</span><span class="ky">Офис</span></div></div>
+      <div class="product-info">
+        <h3>Haier Cassette 24</h3>
+        <p><span class="ru">24000 БТЕ, кассетная система для офисов и торговых помещений.</span><span class="ky">24000 БТЕ, офистер жана соода жайлары үчүн кассеталык система.</span></p>
+        <div class="product-price">от 95 000 <span>сом</span></div>
+        <button class="product-btn" onclick="orderProduct('Haier Cassette 24')"><span class="ru">Заказать</span><span class="ky">Буйрутуу</span></button>
+      </div>
+    </div>
+    <div class="product-card reveal">
+      <div class="product-img">⚡</div>
+      <div class="product-info">
+        <h3>Gree Lomo 9</h3>
+        <p><span class="ru">9000 БТЕ, до 25 м². Компактный, надёжный, низкое потребление энергии.</span><span class="ky">9000 БТЕ, 25 м²га чейин. Компакт, ишенимдүү, аз энергия керектөө.</span></p>
+        <div class="product-price">от 38 000 <span>сом</span></div>
+        <button class="product-btn" onclick="orderProduct('Gree Lomo 9')"><span class="ru">Заказать</span><span class="ky">Буйрутуу</span></button>
+      </div>
+    </div>
+    <div class="product-card reveal">
+      <div class="product-img">🔆</div>
+      <div class="product-info">
+        <h3>Daikin Sensira 12</h3>
+        <p><span class="ru">12000 БТЕ, японское качество. Режим нагрева, осушки и вентиляции.</span><span class="ky">12000 БТЕ, жапондук сапат. Ысытуу, кургатуу жана желдетүү режими.</span></p>
+        <div class="product-price">от 72 000 <span>сом</span></div>
+        <button class="product-btn" onclick="orderProduct('Daikin Sensira 12')"><span class="ru">Заказать</span><span class="ky">Буйрутуу</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-section">
+  <div class="section-label">
+    <span class="ru">Как мы работаем</span>
+    <span class="ky">Биз кандай иштейбиз</span>
+  </div>
+  <div class="section-title reveal">
+    <span class="ru">Просто и быстро</span>
+    <span class="ky">Жөнөкөй жана тез</span>
+  </div>
+  <p class="section-desc reveal">
+    <span class="ru">От заявки до прохлады в вашем помещении — 4 шага.</span>
+    <span class="ky">Өтүнүчтөн жайыңыздагы салкындыкка чейин — 4 кадам.</span>
+  </p>
+  <div class="process-steps">
+    <div class="process-step reveal">
+      <div class="process-num">01</div>
+      <h3><span class="ru">Заявка</span><span class="ky">Өтүнүч</span></h3>
+      <p><span class="ru">Оставьте заявку на сайте или позвоните нам — ответим моментально.</span><span class="ky">Сайтта өтүнүч калтырыңыз же бизге чалыңыз — дароо жооп беребиз.</span></p>
+    </div>
+    <div class="process-step reveal">
+      <div class="process-num">02</div>
+      <h3><span class="ru">Консультация</span><span class="ky">Консультация</span></h3>
+      <p><span class="ru">Менеджер уточняет детали, подбирает оптимальную модель и называет точную цену.</span><span class="ky">Менеджер чоо-жайын тактап, оптималдуу моделди тандап, так баасын айтат.</span></p>
+    </div>
+    <div class="process-step reveal">
+      <div class="process-num">03</div>
+      <h3><span class="ru">Монтаж</span><span class="ky">Монтаж</span></h3>
+      <p><span class="ru">Наш мастер приезжает в удобное время и устанавливает кондиционер за несколько часов.</span><span class="ky">Устабыз ыңгайлуу убакытта келип, бирнече саатта кондиционерди орнотот.</span></p>
+    </div>
+    <div class="process-step reveal">
+      <div class="process-num">04</div>
+      <h3><span class="ru">Сдача</span><span class="ky">Тапшыруу</span></h3>
+      <p><span class="ru">Проверяем работу, выдаём гарантийный талон. Вы наслаждаетесь прохладой!</span><span class="ky">Иштешин текшерип, кепилдик талонун беребиз. Сиз салкындыктан ырахат аласыз!</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-label">
+    <span class="ru">Контакты</span>
+    <span class="ky">Байланыш</span>
+  </div>
+  <div class="section-title reveal">
+    <span class="ru">Свяжитесь с нами</span>
+    <span class="ky">Биз менен байланышыңыз</span>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="contact-block reveal">
+        <div class="contact-block-icon">📞</div>
+        <div>
+          <h4><span class="ru">Телефон / WhatsApp</span><span class="ky">Телефон / WhatsApp</span></h4>
+          <a href="https://wa.me/996700321352" target="_blank">+996 700 32-13-52</a>
+        </div>
+      </div>
+      <div class="contact-block reveal">
+        <div class="contact-block-icon">🏢</div>
+        <div>
+          <h4><span class="ru">Компания</span><span class="ky">Компания</span></h4>
+          <p><span class="ru">ОсОО «Салкын», Кыргызстан</span><span class="ky">ЖЧК «Салкын», Кыргызстан</span></p>
+        </div>
+      </div>
+      <div class="contact-block reveal">
+        <div class="contact-block-icon">🕐</div>
+        <div>
+          <h4><span class="ru">Режим работы</span><span class="ky">Иш убактысы</span></h4>
+          <p><span class="ru">Пн–Вс: 9:00 – 20:00</span><span class="ky">Дш–Жш: 9:00 – 20:00</span></p>
+        </div>
+      </div>
+      <div class="contact-block reveal">
+        <div class="contact-block-icon">📍</div>
+        <div>
+          <h4><span class="ru">Регион работы</span><span class="ky">Иш аймагы</span></h4>
+          <p><span class="ru">Бишкек и вся Кыргызстан</span><span class="ky">Бишкек жана бүткүл Кыргызстан</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-card reveal">
+      <h3>
+        <span class="ru">Оставить заявку</span>
+        <span class="ky">Өтүнүч калтыруу</span>
+      </h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label><span class="ru">Ваше имя</span><span class="ky">Атыңыз</span></label>
+          <input type="text" id="f-name" placeholder="Асел" />
+        </div>
+        <div class="form-group">
+          <label><span class="ru">Телефон</span><span class="ky">Телефон</span></label>
+          <input type="tel" id="f-phone" placeholder="+996 ..." />
+        </div>
+      </div>
+      <div class="form-group">
+        <label><span class="ru">Тип услуги</span><span class="ky">Кызмат түрү</span></label>
+        <select id="f-service">
+          <option value=""><span class="ru">Выберите...</span></option>
+          <option value="Продажа">Продажа / Сатуу</option>
+          <option value="Установка">Установка / Орнотуу</option>
+          <option value="Обслуживание">Обслуживание / Тейлөө</option>
+          <option value="Ремонт">Ремонт / Оңдоо</option>
+          <option value="Консультация">Консультация</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label><span class="ru">Сообщение</span><span class="ky">Билдирүү</span></label>
+        <textarea id="f-msg" placeholder="..."></textarea>
+      </div>
+      <button class="submit-btn" onclick="sendToWhatsApp()">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        <span class="ru">Отправить в WhatsApp</span>
+        <span class="ky">WhatsApp'ка жөнөтүү</span>
+      </button>
+      <div id="form-success">
+        ✅ <span class="ru">Заявка отправлена! Мы свяжемся с вами в WhatsApp.</span>
+        <span class="ky">Өтүнүч жөнөтүлдү! WhatsApp аркылуу байланышабыз.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo">
+        <div class="nav-logo-icon">❄️</div>
+        <span class="nav-logo-text">Сал<span>кын</span></span>
+      </a>
+      <p>
+        <span class="ru">ОсОО «Салкын» — ваш надёжный партнёр по климатическому оборудованию в Кыргызстане с 2026 года.</span>
+        <span class="ky">ЖЧК «Салкын» — 2026-жылдан бери Кыргызстандагы климаттык жабдыктар боюнча ишенимдүү өнөктөшүңүз.</span>
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4><span class="ru">Услуги</span><span class="ky">Кызматтар</span></h4>
+      <ul>
+        <li><a href="#services"><span class="ru">Продажа</span><span class="ky">Сатуу</span></a></li>
+        <li><a href="#services"><span class="ru">Установка</span><span class="ky">Орнотуу</span></a></li>
+        <li><a href="#services"><span class="ru">Обслуживание</span><span class="ky">Тейлөө</span></a></li>
+        <li><a href="#services"><span class="ru">Ремонт</span><span class="ky">Оңдоо</span></a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4><span class="ru">Контакты</span><span class="ky">Байланыш</span></h4>
+      <ul>
+        <li><a href="https://wa.me/996700321352">+996 700 32-13-52</a></li>
+        <li><a href="#contact"><span class="ru">WhatsApp</span><span class="ky">WhatsApp</span></a></li>
+        <li><a href="#catalog"><span class="ru">Каталог</span><span class="ky">Каталог</span></a></li>
+        <li><a href="#about"><span class="ru">О нас</span><span class="ky">Биз жөнүндө</span></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 ОсОО «Салкын». <span class="ru">Все права защищены.</span><span class="ky">Бардык укуктар корголгон.</span></div>
+    <div class="footer-dev">
+      <span class="ru">Разработчик:</span>
+      <span class="ky">Иштеп чыккан:</span>
+      Самат — <a href="https://wa.me/996776544888">+996 776 54-48-88</a>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp float -->
+<a href="https://wa.me/996700321352" class="wa-float" target="_blank" title="WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+// ===== THEME =====
+function toggleTheme(){
+  const html = document.documentElement;
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  document.getElementById('themeBtn').textContent = isDark ? '🌙' : '☀️';
+  updateWave();
+}
+function updateWave(){
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  document.getElementById('wavePath').setAttribute('fill', isDark ? '#08111f' : '#f0f6ff');
+}
+
+// ===== LANG =====
+function toggleLang(){
+  const html = document.documentElement;
+  const isRu = html.getAttribute('data-lang') === 'ru';
+  html.setAttribute('data-lang', isRu ? 'ky' : 'ru');
+  document.getElementById('langBtn').textContent = isRu ? 'RU' : 'KG';
+}
+
+// ===== SNOWFLAKES =====
+function createSnow(){
+  const bg = document.getElementById('snowBg');
+  const chars = ['❄','❅','❆','✻','✼'];
+  for(let i=0;i<22;i++){
+    const s = document.createElement('span');
+    s.className='sf';
+    s.textContent = chars[Math.floor(Math.random()*chars.length)];
+    s.style.left = Math.random()*100+'%';
+    s.style.animationDuration = (6+Math.random()*10)+'s';
+    s.style.animationDelay = (Math.random()*10)+'s';
+    s.style.fontSize = (0.8+Math.random()*1.5)+'rem';
+    bg.appendChild(s);
+  }
+}
+createSnow();
+
+// ===== SCROLL REVEAL =====
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); } });
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+// ===== FORM / WHATSAPP =====
+function sendToWhatsApp(){
+  const name = document.getElementById('f-name').value.trim();
+  const phone = document.getElementById('f-phone').value.trim();
+  const service = document.getElementById('f-service').value;
+  const msg = document.getElementById('f-msg').value.trim();
+  if(!name || !phone){
+    alert('Пожалуйста, заполните имя и телефон / Аты жана телефонду толтуруңуз');
+    return;
+  }
+  const text = `Новая заявка с сайта Салкын:%0A👤 Имя: ${encodeURIComponent(name)}%0A📞 Телефон: ${encodeURIComponent(phone)}%0A🔧 Услуга: ${encodeURIComponent(service||'Не указана')}%0A💬 Сообщение: ${encodeURIComponent(msg||'-')}`;
+  window.open(`https://wa.me/996700321352?text=${text}`,'_blank');
+  document.getElementById('form-success').style.display = 'block';
+  document.getElementById('f-name').value='';
+  document.getElementById('f-phone').value='';
+  document.getElementById('f-service').value='';
+  document.getElementById('f-msg').value='';
+  setTimeout(()=>{ document.getElementById('form-success').style.display='none'; },5000);
+}
+
+function orderProduct(name){
+  const text = `Хочу заказать кондиционер: ${encodeURIComponent(name)}. Прошу связаться со мной.`;
+  window.open(`https://wa.me/996700321352?text=${text}`,'_blank');
+}
+</script>
+</body>
+</html>
